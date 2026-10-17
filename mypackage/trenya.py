@@ -1,19 +1,9 @@
-def make_filter(threshold):
-    
-    def num_filter(*nums):
-        list_num = []
-        for num in nums:
-            if num >= threshold:
-                 list_num.append(num)
-            
-            
-        return list_num
-    return num_filter
+def num_square(n):
+    square_list = []
+    for i in n:
+        i **= 2
+        square_list.append(i)
+    return square_list
 
-filter_10 = make_filter(10)
-
-print(filter_10(5, 12, 8, 15, 10))  # [12, 15, 10]
-print(filter_10(1, 2, 3))           # []
-
-
-
+numbers = [1, 2, 3, 4]
+print(num_square(numbers))
