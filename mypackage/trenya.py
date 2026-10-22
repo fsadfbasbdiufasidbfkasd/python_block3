@@ -1,18 +1,28 @@
-def num_square(n):
-    square_list = []
-    for i in n:
-        i **= 2
-        square_list.append(i)
-    return square_list
+def analyze_grades(filename):
+    count = 0
+    total = 0
+    max_grade = []
+    with open(filename, "r", encoding="utf-8") as f:
+        for line in f:
+            line = line.strip()
+            if line != "":
+            
+                count += 1
+                total += int(line)
+                max_grade.append(int(line))
 
-numbers = [1, 2, 3, 4]
-print(num_square(numbers))
+    max_grade = max(max_grade)        
+    average = total / count
+    return {
+        "count": count,
+        "average": average,
+        "max": max_grade
+    }
 
+with open("grades.txt", "w", encoding="utf-8") as f:
+    f.write("5\n4\n\n3\n5\n2\n")
 
-def gen_number(n):
-    for i in n:
-        i = i ** 2
-        yield i
+result = analyze_grades("grades.txt")
 
-numbers = [1, 2, 3, 4]
-print(list(gen_number(numbers)))
+print(result)
+
